@@ -7,7 +7,12 @@ export default function FormCargaInfoFiscales() {
   const [email, setEmail] = useState("");
   const [location, setLocation] = useState("Obera"); // Valor predeterminado
 
+  function cleanLocalStorage() {
+    localStorage.clear();
+  }
+
   function handleSubmit(e) {
+    cleanLocalStorage();
     e.preventDefault();
     localStorage.clear();
     localStorage.setItem("name", name);
@@ -17,11 +22,9 @@ export default function FormCargaInfoFiscales() {
     localStorage.setItem("location", location);
   }
 
-  function cleanLocalStorage() {}
-
   return (
     <>
-      <main className="flex min-h-screen flex-col items-center justify-between p-14">
+      <div className="flex min-h-screen flex-col items-center justify-center p-14">
         <form onSubmit={handleSubmit}>
           <div className="space-y-12 bg-gray-900">
             <div className="bg-gray-900 border-b border-gray-900/10 pb-12">
@@ -141,7 +144,7 @@ export default function FormCargaInfoFiscales() {
             </button>
           </div>
         </form>
-      </main>
+      </div>
     </>
   );
 }
